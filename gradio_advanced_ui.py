@@ -1012,10 +1012,15 @@ def create_advanced_interface():
 demo = create_advanced_interface()
 
 if __name__ == "__main__":
+    import os
+    
+    # Get port from environment variable (Render sets this) or default to 7860
+    port = int(os.environ.get("PORT", 7860))
+    
     demo.launch(
         share=False,  # Set to True if you want a public link
-        server_name="127.0.0.1",
-        server_port=7860,
+        server_name="0.0.0.0",  # Bind to all interfaces for hosting platforms
+        server_port=port,  # Use port from environment or default
         show_error=True,
         quiet=True,
         favicon_path=None,
