@@ -1,0 +1,1 @@
+web: python gradio_advanced_ui.py
